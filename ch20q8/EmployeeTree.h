@@ -44,7 +44,7 @@ public:
     {
         destroySubtree(root);
     }
-    void insert(EmployeeInfo e)
+    void insert(EmployeeInfo &e)
     {
         insert(root, e);
     }

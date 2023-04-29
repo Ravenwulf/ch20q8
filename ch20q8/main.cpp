@@ -4,7 +4,7 @@
 int main() {
 
 	EmployeeTree tree;
-	tree.insert(new EmployeeInfo());
+	tree.insert(*(new EmployeeInfo()));
 
 	return 0;
 }
