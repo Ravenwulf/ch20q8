@@ -1,5 +1,7 @@
 #include <string>
+#include <iostream>
 #include "EmployeeInfo.h"
+using namespace std;
 
 class EmployeeTree
 {
@@ -48,7 +50,7 @@ public:
     {
         insert(root, e);
     }
-    bool search(int) const;
+    void search(int) const;
     void remove(int num)
     {
         remove(root, num);
@@ -87,3 +89,4 @@ public:
     }
 };
 
+class EmployeeNotFound {};

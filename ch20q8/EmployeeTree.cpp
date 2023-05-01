@@ -1,6 +1,5 @@
 #include <iostream>
 #include "EmployeeTree.h"
-using namespace std;
 
 //**************************************************
 // This version of insert inserts a number into    *
@@ -46,7 +45,7 @@ void EmployeeTree::destroySubtree(TreeNode* tree)
 // the tree. If so, the function returns true.      *
 // Otherwise, it returns false.                     *
 //***************************************************
-bool EmployeeTree::search(int id) const
+void EmployeeTree::search(int id) const
 {
     TreeNode* tree = root;
 
@@ -54,14 +53,14 @@ bool EmployeeTree::search(int id) const
     {
         if (tree->employee.id == id) {
             std::cout << "Employee Found: " << tree->employee.name << std::endl;
-            return true;
+            return;
         }
         else if (id < tree->employee.id)
             tree = tree->left;
         else
             tree = tree->right;
     }
-    return false;
+    throw EmployeeNotFound();
 }
 
 //********************************************
@@ -141,7 +140,7 @@ void EmployeeTree::displayInOrder(TreeNode* tree) const
     if (tree)
     {
         displayInOrder(tree->left);
-        cout << tree->employee.id << "  ";
+        cout << tree->employee.name << "  ";
         displayInOrder(tree->right);
     }
 }
@@ -151,7 +150,7 @@ void EmployeeTree::displayInColor(TreeNode* tree, std::string color) const
     if (tree)
     {
         displayInColor(tree->left, "\u001b[32;1m");
-        cout << color << tree->employee.id << "  ";
+        cout << color << tree->employee.name << "  ";
         displayInColor(tree->right, "\u001b[31;1m");
         cout << "\u001b[0m";
     }
@@ -165,7 +164,7 @@ void EmployeeTree::displayPreOrder(TreeNode* tree) const
 {
     if (tree)
     {
-        cout << tree->employee.id << "  ";
+        cout << tree->employee.name << "  ";
         displayPreOrder(tree->left);
         displayPreOrder(tree->right);
     }
@@ -181,7 +180,7 @@ void EmployeeTree::displayPostOrder(TreeNode* tree) const
     {
         displayPostOrder(tree->left);
         displayPostOrder(tree->right);
-        cout << tree->employee.id << "  ";
+        cout << tree->employee.name << "  ";
     }
 }
 
