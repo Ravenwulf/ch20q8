@@ -15,23 +15,23 @@ int main() {
 	tree.insert(*(new EmployeeInfo(1, "susan")));
 	tree.insert(*(new EmployeeInfo(11, "ben")));
 	tree.insert(*(new EmployeeInfo(14, "mack")));
-	tree.showInColor();
+	//tree.showInColor();
 
 	bool searching = true;
 	int id;
 	char yesno;
 	while (searching) {
-		std::cout << "\nEnter an employee id to lookup: ";
+		std::cout << "\u001b[0m\nEnter an employee id to lookup: \u001b[33;1m";
 		std::cin >> id;
 		std::cin.ignore();
-		std::cout << "Searching for employee #" << id << " ...\n";
+		std::cout << "\u001b[0mSearching for employee #\u001b[33;1m" << id << "\u001b[0m ...\n";
 		try {
 			tree.search(id);
 		} catch (EmployeeNotFound e) {
-			std::cout << "ERROR: Employee Not Found";
+			std::cout << "\u001b[31;1mERROR\u001b[0m: Employee Not Found";
 		}
 		
-		std::cout << "\nSearch for another employee? (y/n) ";
+		std::cout << "\nSearch for another employee? (\u001b[32;1my\u001b[0m/\u001b[31;1mn\u001b[0m)\u001b[35;1m ";
 		std::cin >> yesno;
 		yesno == 'y' ? searching = true : searching = false;
 	}

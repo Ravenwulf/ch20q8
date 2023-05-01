@@ -52,7 +52,7 @@ void EmployeeTree::search(int id) const
     while (tree)
     {
         if (tree->employee.id == id) {
-            std::cout << "Employee Found: " << tree->employee.name << std::endl;
+            std::cout << "Employee Found: " << "\u001b[36;1m" << tree->employee.name << "\u001b[0m\n";
             return;
         }
         else if (id < tree->employee.id)
